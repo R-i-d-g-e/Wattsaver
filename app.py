@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import os
 
 app = Flask(__name__)
+CORS(app)
 app.config['SECRET_KEY'] = 'wattsaver-secret-key-2026'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///wattsaver.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
